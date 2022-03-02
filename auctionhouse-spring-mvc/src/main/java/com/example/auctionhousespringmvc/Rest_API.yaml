@@ -1,0 +1,40 @@
+/users/{id}:
+  get:
+  response:
+    200: : <User> data
+    400: "Invalid id type must be an integer"
+    403: "only admin"
+    404: "could not find user"
+
+/users/{id}:
+  put:
+    body:
+      firstname: <String>
+      lastname: <String>
+      org: <String>
+    response:
+      200: changed {id}
+      400: invalid input type - String
+      403: only user can changes its own data -
+      404: could not find user
+
+/users:
+  get:
+  response:
+    200:  User: [user1,user2...]
+    400: invalid input type
+    403: only a user can change its own data
+    404: could not find users
+
+
+/users/{id}/block
+  put:
+  body:
+  response:
+    200: Blocked another user!
+    400: Invalid iput type, must be a string (or invalid type of request)
+    403: User cannot block himself OR only admin can block other user
+    404: could not find the user
+
+/auctions/{auctionid}/<action>
+
