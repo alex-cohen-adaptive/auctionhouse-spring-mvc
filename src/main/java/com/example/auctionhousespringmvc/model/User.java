@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -36,20 +37,22 @@ public class User {
             generator = "organization_sequence"
     )
     private int userid;
+
     @Column (
           nullable = false
     )
     private String firstName;
+
     @Column(nullable = false)
     private  String lastName;
+
     @Column(nullable = false)
-    private  String password;
+    private  PasswordEncoder password;
+
     @Column(nullable = false)
     private  String organization;
 
-
-//    todo come back to this later
-//    boolean isAdmin;
-//    boolean blocked;
+    @OneToMany(mappedBy = "user")
+    private Set<Bid> bids;
 
 }

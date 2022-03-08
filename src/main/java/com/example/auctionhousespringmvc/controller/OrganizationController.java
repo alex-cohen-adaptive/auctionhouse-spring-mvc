@@ -38,6 +38,7 @@ public class OrganizationController {
        );
     }
 
+/*
 
     @GetMapping("get/{name}")
     @ResponseStatus(HttpStatus.CREATED)
@@ -46,6 +47,7 @@ public class OrganizationController {
                organizationService.getOrganization(name);
        );
     }
+*/
 
 
 

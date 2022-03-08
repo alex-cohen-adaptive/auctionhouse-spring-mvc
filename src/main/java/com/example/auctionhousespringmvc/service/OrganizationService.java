@@ -6,9 +6,6 @@ import com.example.auctionhousespringmvc.model.Organization;
 import com.example.auctionhousespringmvc.repository.OrganizationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.PersistenceException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Optional;
 
 
@@ -36,7 +33,7 @@ public class OrganizationService {
              return result.get();
     }
     public Organization getOrganizationByName(String name) {
-             Optional<Organization> result = organizationRepository.findById(name);
+             Optional<Organization> result = organizationRepository.findByName(name);
              if (result.isEmpty()) {
                  throw new NotFoundException("Error retrieving organization! Does not exist!");
              }
