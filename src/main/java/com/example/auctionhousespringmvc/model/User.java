@@ -47,7 +47,7 @@ public class User {
     private  String lastName;
 
     @Column(nullable = false)
-    private  PasswordEncoder password;
+    private  String password;
 
     @Column(nullable = false)
     private  String organization;

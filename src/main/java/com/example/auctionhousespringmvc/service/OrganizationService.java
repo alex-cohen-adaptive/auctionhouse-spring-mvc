@@ -1,6 +1,6 @@
 package com.example.auctionhousespringmvc.service;
 
-import com.example.auctionhousespringmvc.exception.BusinessException;
+import com.example.auctionhousespringmvc.exception.BadRequestException;
 import com.example.auctionhousespringmvc.exception.NotFoundException;
 import com.example.auctionhousespringmvc.model.Organization;
 import com.example.auctionhousespringmvc.repository.OrganizationRepository;
@@ -22,7 +22,7 @@ public class OrganizationService {
             return organization;
 
         } catch (Exception e) {
-            throw new BusinessException("Error Creating Organization! Organization already created!");
+            throw new BadRequestException("Error Creating Organization! Organization already created!");
         }
     }
     public Organization getOrganization(Long id) {
